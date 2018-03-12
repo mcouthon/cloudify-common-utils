@@ -16,3 +16,14 @@
 
 class NoContextSet(RuntimeError):
     """ Attempted accessing a context, but no context is available. """
+
+
+class HTTPException(Exception):
+    """"""
+    def __init__(self, url, code, reason):
+        self.url = url
+        self.code = code
+        self.reason = reason
+
+    def __str__(self):
+        return '{0} ({1}) : {2}'.format(self.code, self.url, self.reason)
